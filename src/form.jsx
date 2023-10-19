@@ -1,8 +1,10 @@
 import { useState } from "react";
+import uniqid from "uniqid";
 
 import Input from "./input";
 
 const initialFormValue = {
+  recordId: "",
   recordName: "",
   artistName: "",
   description: "",
@@ -12,9 +14,15 @@ function Form({ onSubmit }) {
 
   function onFormSubmitHandler(e) {
     e.preventDefault();
-    onSubmit(inputValue);
+    const id = uniqid();
+    onSubmit({
+      ...inputValue,
+      recordId: id,
+    });
   }
+
   function onInputChangeHandler(e) {
+    console.log(e.target.id);
     setInputValue({
       ...inputValue,
       [e.target.name]: e.target.value,
@@ -25,7 +33,6 @@ function Form({ onSubmit }) {
       <form onSubmit={onFormSubmitHandler}>
         <Input
           type="text"
-          id="artistName"
           labelText="Artist Name"
           key="artistName"
           placeholder="enter artist name"
@@ -34,7 +41,6 @@ function Form({ onSubmit }) {
         />
         <Input
           type="text"
-          id="recordName"
           labelText="Record Name"
           key="recordName"
           placeholder="enter record name"
@@ -43,7 +49,6 @@ function Form({ onSubmit }) {
         />
         <Input
           type="textarea"
-          id="description"
           labelText="Description"
           key="description"
           placeholder="enter some description"
