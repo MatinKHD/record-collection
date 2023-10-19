@@ -1,4 +1,5 @@
 import Section from "./section";
+import Form from "./form";
 
 function Container() {
   const headTxt =
@@ -6,7 +7,7 @@ function Container() {
   return (
     <>
       <Section headingLevel={2} headingText={headTxt}>
-        <p>section child</p>
+        <Form />
       </Section>
     </>
   );
