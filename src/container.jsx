@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import axios from "axios";
 
@@ -10,12 +10,14 @@ function Container() {
   const [records, setRecords] = useState([]);
   const formHeadTxt = "Add Records";
   const listHeadTxt = "Records";
+  const isMounted = useRef(true);
 
   function onFormSubmitHandler(value) {
     axios.post("http://localhost:2000/records", value).then(({ data }) => {
-      console.log(data);
+      if (isMounted) {
+        setRecords([...records, data]);
+      }
     });
-    setRecords([...records, value]);
   }
   return (
     <>
