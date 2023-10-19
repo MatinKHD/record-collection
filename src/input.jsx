@@ -1,4 +1,9 @@
-function Input({ type, id, labelText, ...props }) {
+import { useRef } from "react";
+import uniqid from "uniqid";
+
+function Input({ type, labelText, ...props }) {
+  const id = useRef(uniqid()).current;
+
   return (
     <>
       <label htmlFor={id}>{labelText}</label>
