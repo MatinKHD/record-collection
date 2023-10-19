@@ -1,17 +1,23 @@
+import { useState } from "react";
+
 import Section from "./section";
 import Form from "./form";
 
 function Container() {
-  const headTxt =
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, voluptas! Quas sed odit obcaecati! Illo, provident.";
+  const [records, setRecords] = useState([]);
+  const formHeadTxt = "Add Records";
+  const listHeadTxt = "Records";
 
   function onFormSubmitHandler(value) {
-    console.log(value);
+    setRecords([...records, value]);
   }
   return (
     <>
-      <Section headingLevel={2} headingText={headTxt}>
+      <Section headingLevel={2} headingText={formHeadTxt}>
         <Form onSubmit={onFormSubmitHandler} />
+      </Section>
+      <Section headingLevel={2} headingText={listHeadTxt}>
+        {/* <List records={records} /> */}
       </Section>
     </>
   );
