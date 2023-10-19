@@ -2,4 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: cursive;
+}
+body {
+  background: linear-gradient(220deg, #a7ffc2, #ffffffd6) no-repeat fixed;
 }

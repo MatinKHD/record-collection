@@ -3,6 +3,8 @@ import uniqid from "uniqid";
 
 import Input from "./input";
 
+import "./form.css";
+
 const initialFormValue = {
   recordId: "",
   recordName: "",
@@ -29,7 +31,7 @@ function Form({ onSubmit }) {
     });
   }
   return (
-    <>
+    <div className="form-container">
       <form onSubmit={onFormSubmitHandler}>
         <Input
           type="text"
@@ -55,9 +57,11 @@ function Form({ onSubmit }) {
           name="description"
           onChange={onInputChangeHandler}
         />
-        <button type="submit">Add</button>
+        <div className="button-container">
+          <button type="submit">Add</button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

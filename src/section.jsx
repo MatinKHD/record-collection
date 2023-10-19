@@ -1,7 +1,9 @@
+import "./section.css";
+
 function Section({ children, headingLevel = 1, headingText }) {
   const H = `h${headingLevel}`;
   return (
-    <section>
+    <section className="section-container">
       <H>{headingText}</H>
       {children}
     </section>

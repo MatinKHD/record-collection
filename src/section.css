@@ -1,0 +1,7 @@
+.section-container {
+  margin: 25px 50px;
+}
+.section-container > h2 {
+  text-align: center;
+  margin: 10px 20px;
+}
