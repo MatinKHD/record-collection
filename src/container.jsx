@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import axios from "axios";
 
@@ -11,14 +11,25 @@ function Container() {
   const formHeadTxt = "Add Records";
   const listHeadTxt = "Records";
   const isMounted = useRef(true);
+  const api = "http://localhost:2000/records";
 
   function onFormSubmitHandler(value) {
-    axios.post("http://localhost:2000/records", value).then(({ data }) => {
+    axios.post(api, value).then(({ data }) => {
       if (isMounted) {
         setRecords([...records, data]);
       }
     });
   }
+
+  useEffect(() => {
+    axios.get(api).then(({ data }) => {
+      if (isMounted) {
+        setRecords(data);
+      }
+    });
+    return () => (isMounted.current = false);
+  }, []);
+
   return (
     <>
       <Section headingLevel={2} headingText={formHeadTxt}>
