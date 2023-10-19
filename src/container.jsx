@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import axios from "axios";
+
 import Section from "./section";
 import Form from "./form";
 import List from "./list";
@@ -10,6 +12,9 @@ function Container() {
   const listHeadTxt = "Records";
 
   function onFormSubmitHandler(value) {
+    axios.post("http://localhost:2000/records", value).then(({ data }) => {
+      console.log(data);
+    });
     setRecords([...records, value]);
   }
   return (
