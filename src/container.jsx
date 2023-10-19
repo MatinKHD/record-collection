@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Section from "./section";
 import Form from "./form";
+import List from "./list";
 
 function Container() {
   const [records, setRecords] = useState([]);
@@ -17,7 +18,7 @@ function Container() {
         <Form onSubmit={onFormSubmitHandler} />
       </Section>
       <Section headingLevel={2} headingText={listHeadTxt}>
-        {/* <List records={records} /> */}
+        <List records={records} />
       </Section>
     </>
   );
