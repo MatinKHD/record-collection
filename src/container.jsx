@@ -1,5 +1,15 @@
+import Section from "./section";
+
 function Container() {
-  return <p>container works!</p>;
+  const headTxt =
+    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, voluptas! Quas sed odit obcaecati! Illo, provident.";
+  return (
+    <>
+      <Section headingLevel={2} headingText={headTxt}>
+        <p>section child</p>
+      </Section>
+    </>
+  );
 }
 
 export default Container;
