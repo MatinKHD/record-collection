@@ -5,12 +5,12 @@ const initialFormValue = {
   artistName: "",
   description: "",
 };
-function Form() {
+function Form({ onSubmit }) {
   const [inputValue, setInputValue] = useState(initialFormValue);
 
   function onFormSubmitHandler(e) {
     e.preventDefault();
-    console.log(inputValue);
+    onSubmit(inputValue);
   }
   function onInputChangeHandler(e) {
     setInputValue({
